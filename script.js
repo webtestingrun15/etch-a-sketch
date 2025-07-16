@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const button = document.querySelector(".size");
 
 function hoverGrid() {
   let grid = document.querySelectorAll('.grids');
@@ -10,9 +11,9 @@ function hoverGrid() {
   });
 }
 
-function grid(l,w) {
-  console.log(`${l} x ${w}`);
-  const fullGrid = l * w;
+function grid(size) {
+  console.log(`${size} x ${size}`);
+  const fullGrid = size * size;
   for (let i = 1; i <= fullGrid; i++) {
         const grids = document.createElement("div");
         grids.classList.add("grids");
@@ -21,6 +22,13 @@ function grid(l,w) {
   hoverGrid();
 }
 
-container.addEventListener('load', grid(16,16))
+button.addEventListener('click', buttonClick);
 
-
+function buttonClick() {
+  let gridSize = prompt("How big do you want the Grid?");
+  if(gridSize <= 101 || gridSize !== null || gridSize !== ""){
+    return grid(gridSize);
+  } else {
+    alert("Try again your number must be less than 100")
+  }
+}
