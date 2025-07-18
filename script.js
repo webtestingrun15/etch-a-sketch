@@ -25,10 +25,20 @@ function grid(size) {
 button.addEventListener('click', buttonClick);
 
 function buttonClick() {
-  let gridSize = prompt("How big do you want the Grid?");
-  if(gridSize <= 101 || gridSize !== null || gridSize !== ""){
+  resetGrid();
+  gridSize = prompt("How big do you want the Grid?");
+  if(gridSize <= 100 && gridSize !== null && gridSize !== ""){
     return grid(gridSize);
   } else {
-    alert("Try again your number must be less than 100")
+    alert("Try again you must enter a number and it must be less than 100")
+  }
+}
+
+function resetGrid() {
+  const grids = document.querySelectorAll(".grids");
+  if(grids.length){
+    while(container.hasChildNodes){
+      container.removeChild(container.firstChild);
+    }
   }
 }
