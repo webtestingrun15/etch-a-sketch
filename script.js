@@ -5,8 +5,12 @@ function hoverGrid() {
   let grid = document.querySelectorAll('.grids');
 
   grid.forEach((div) => {
+    const red = Math.floor(Math.random() * 255) + 1;
+    const green = Math.floor(Math.random() * 255) + 1;
+    const blue = Math.floor(Math.random() * 255) + 1;
+
     div.addEventListener("mouseleave", () => {
-      div.style.backgroundColor = "blue";
+      div.style.backgroundColor = `rgb(${red} ${green} ${blue})`;
     });
   });
 }
@@ -18,8 +22,8 @@ function grid(size) {
         const grids = document.createElement("div");
         grids.classList.add("grids");
         container.appendChild(grids);
-  }
-  hoverGrid();
+      }
+      hoverGrid();
 }
 
 button.addEventListener('click', buttonClick);
