@@ -8,9 +8,14 @@ function hoverGrid() {
     const red = Math.floor(Math.random() * 255) + 1;
     const green = Math.floor(Math.random() * 255) + 1;
     const blue = Math.floor(Math.random() * 255) + 1;
+    let opacity = 0.1;
 
     div.addEventListener("mouseleave", () => {
-      div.style.backgroundColor = `rgb(${red} ${green} ${blue})`;
+      if (opacity <= 1){
+        opacity += opacity;
+      }
+      div.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${opacity})`;
+      // div.style.opacity = opacity;
     });
   });
 }
